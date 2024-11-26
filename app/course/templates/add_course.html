@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block title %} Add course {% endblock %}
+
+{% block content %}
+<form method="POST">
+    <p>
+        {{form.hidden_tag()}} <!--hemps protect against the cross site request forgery-->
+    </p>
+    <p>{{form.course_name.label()}}  <!--This is the text label-->
+        {{form.course_name()}} <!--This is the text field-->
+    </p>
+    <p>{{form.course_code.label()}}  <!--This is the text label-->
+        {{form.course_code()}} <!--This is the text field-->
+    </p>
+    <p>{{form.submit(class='.button_primary')}}  
+    </p>
+</form>
+  
+
+{% endblock %}

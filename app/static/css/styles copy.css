@@ -1,0 +1,55 @@
+/* styles.css */
+
+
+body {
+    margin: 0;
+}
+header {
+    background-color: #ff008c; /* A beautiful white color */
+    padding:30px 0; /* Adjust padding as needed */
+    margin: 0
+}
+
+nav ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    display: flex; /* Use flexbox to arrange items horizontally */
+    justify-content: center; /* Center items */
+}
+
+nav ul li {
+    margin: 0 20px; /* Add margin between items */
+    position: relative; /* Position for the underline effect */
+}
+
+nav ul li a {
+    color: pink; /* Set text color to pink */
+    text-decoration: none; /* Remove underline from links */
+    font-weight: bold; /* Make text bold */
+    transition: color 0.3s; /* Smooth transition for color */
+    font-size: 15pt;
+    font-family: monospace
+}
+
+nav ul li a:hover {
+    color: #420d03; /* Change color on hover */
+}
+
+/* Underline animation */
+nav ul li a::after {
+    content: '';
+    display: block;
+    height: 2px; /* Thickness of the underline */
+    background: white; /* Underline color */
+    width: 0; /* Initial width */
+    transition: width 0.3s; /* Smooth transition for width */
+    position: absolute; /* Position it absolutely */
+    left: 50%; /* Center it */
+    bottom: -5px; /* Position below the text */
+    transform: translate(-50%); /* Center the underline */
+}
+
+nav ul li a:hover::after {
+    width: 90%; /* Full width on hover */
+}

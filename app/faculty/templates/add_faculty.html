@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block title %} Add Faculty {% endblock %}
+
+{% block content %}
+<form method="POST">
+    <p>
+        {{form.hidden_tag()}} <!--hemps protect against the cross site request forgery-->
+    </p>
+    <p>{{form.faculty_name.label(class='')}}  <!--This is the text label-->
+        {{form.faculty_name(class='')}} <!--This is the text field-->
+    </p>
+    <p>{{form.faculty_code.label()}}  <!--This is the text label-->
+        {{form.faculty_code()}} <!--This is the text field-->
+    </p>
+    <p>{{form.submit(class='button_primary')}}  
+    </p>
+</form>
+  
+
+{% endblock %}

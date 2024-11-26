@@ -1,0 +1,89 @@
+/* styles.css */
+
+body {
+    margin: 0;
+    font-family:'Times New Roman', Times, serif; /* Changed font family */
+    background-color: #282828; /* Dark background */
+    color: #B3B3B3; /* Light text color */
+}
+
+header {
+    background-color: #F2ACB9; /* Green header color */
+    padding: 13px 0; /* Adjust padding as needed */
+    text-align: left; /* Left-aligned header content */
+    padding-left: 10px; /* Added padding for spacing */
+}
+
+nav ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    display: flex; /* Use flexbox for horizontal arrangement */
+    justify-content: flex-start; /* Left align items */
+}
+
+nav ul li {
+    margin: 0 10px; /* Margin between items */
+    position: relative; /* For underline effect */
+}
+
+nav ul li a {
+    color: rgb(13, 7, 7); /* Set text color to pink */
+    text-decoration: none; /* Remove underline from links */
+    font-weight: normal; /* Normal font weight */
+    font-size: 15px; /* Font size */
+}
+
+nav ul li a::after {
+    content: '';
+    display: block;
+    height: 0.5px; /* Thickness of the underline */
+    background: rgb(16, 15, 15); /* Underline color */
+    width: 0; /* Initial width */
+    transition: width 0.3s; /* Smooth transition for width */
+    position: absolute; /* Position it absolutely */
+    left: 50%; /* Center it */
+    bottom: -5px; /* Position below the text */
+    transform: translate(-50%); /* Center the underline */
+}
+
+nav ul li a:hover::after {
+    width: 0; /* No effect on hover */
+}
+
+
+.table{
+    width:60%;
+    margin:0 auto;
+    border-collapse: collapse
+    
+}
+
+th, td{
+    border:1px solid;
+    padding:8px;
+    text-align:left;
+}
+
+.button_primary{
+    display:inline-block;
+    padding:10px 20px;
+    font-size: 16px;
+    color:white;
+    background-color: crimson;
+    border:#e5dddd;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+.button_danger{
+    display:inline-block;
+    padding:8px 16px;
+    font-size: 14px;
+    color:white;
+    background-color: #F2ACB9;
+    border:#0a0909;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+}
