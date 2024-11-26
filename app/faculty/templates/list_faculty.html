@@ -18,15 +18,14 @@
         <th>S/N</th>
         <th>Faculty name</th>
         <th>Faculty Code</th>
-        <th>Faculty Description</th>
         <th>Action</th>
     
     </tr>
-
+{%  for i in fac  %}
     <tr>
-        <td>1</td>
-        <td>Computing</td>
-        <td>COM</td>
+        <td>{{ i.id  }}</td>
+        <td>{{ i.name  }}</td>
+        <td>{{ i.code  }}</td>
         <td>Faculty of Computing</td>
         <td><a class="button_primary" href="#">Edit</a> &nbsp
             <form>
@@ -34,6 +33,9 @@
             </form>
         </td>
     </tr>
+
+{%  endfor  %}
+
 </table>
 
 

@@ -4,10 +4,11 @@ from app.faculty import faculty_bp
 from app.faculty.forms import Facultyform
 from app.faculty.models import Faculty
 from app import db
-@faculty_bp.route("/faculty_list")
+@faculty_bp.route("/faculty_list", methods=['GET'])
 
 def get_faculty_list():
-    return render_template("list_faculty.html")
+    faculty=Faculty.query.all()
+    return render_template("list_faculty.html",fac=faculty)
 
 
 #Get--retrieves information and passes the information to the html page

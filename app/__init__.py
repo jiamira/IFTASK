@@ -1,41 +1,42 @@
-from flask import Flask, app, render_template
+import os
+
+
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-#from password import get_password
 
-db=SQLAlchemy()
-migrate=Migrate()
+db = SQLAlchemy()
+migrate = Migrate()
 
-DB_USER='root'
-DB_PASSWORD= 'amiriri'
-DB_HOST='localhost'
-DB_NAME='student_course_group'
+
+DB_USER = "root"
+DB_PASSWORD = "amirajibril"
+DB_HOST = "localhost"
+DB_NAME = "student_course_group"
 
 def create_app():
     app = Flask(__name__)
 
-db.init_app(app)
+    @app.route("/")
+
+    def index():
+        return render_template("index.html")
+    
+
+    DATABASE_URI = f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}"
+
+    app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URI
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    SECRET_KEY = os.urandom(32)
+    app.config["SECRET_KEY"] = SECRET_KEY
 
 
-@app.route('/')
-def index():
-    return render_template("index.html")
-
-DATABASE_URI=f'mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}'
+    db.init_app(app)
+    migrate.init_app(app, db)
 
 
-app.config['SQLALCHEMY_DATABASE_URI']=DATABASE_URI
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
-db.init_app(app)
-migrate.init_app(app,db)
-
-#import model
-from app.faculty.models import Faculty
-from app.department.models import Department
-
-#registering the blueprints for the modules
-from app.faculty import faculty_bp
+    from app.faculty import faculty_bp
 
     app.register_blueprint(faculty_bp)
 
@@ -69,8 +70,12 @@ from app.faculty import faculty_bp
     app.register_blueprint(assign_student_bp)
 
 
+    from app.faculty.models import Faculty
+    from app.department.models import Department
+    from app.program.models import Program
 
     with app.app_context():
-    db.create_all()
+        db.create_all()
+
 
     return app
