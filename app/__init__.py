@@ -10,7 +10,7 @@ migrate = Migrate()
 
 
 DB_USER = "root"
-DB_PASSWORD = "amirajibril"
+DB_PASSWORD = "roman7655"
 DB_HOST = "localhost"
 DB_NAME = "student_course_group"
 
