@@ -2,7 +2,7 @@ from flask import *
 
 from app.department import department_bp
 from app.department.models import Department
-from app.department.forms import departmentform
+from app.department.forms import Departmentform
 from app import db 
 @department_bp.route("/department_list")
 
@@ -18,7 +18,7 @@ def get_department_list():
 
 @department_bp.route('/add_department', methods=['GET', 'POST'])
 def add_department():
-    form=departmentform()
+    form=Departmentform()
     if form.validate_on_submit():
         faculty_id=form.faculty_id.data 
         department_name=form.department_name.data
