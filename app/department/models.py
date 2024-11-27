@@ -7,7 +7,7 @@ class Department(db.Model):
     name = db.Column(db.String(50), nullable=False, unique=True)
     code = db.Column(db.String(10), nullable=False, unique=True)
 
-    parent = db.relationship('Department', remote_side=[id], backref='sub_departments')  # Optional for hierarchy
+    #parent = db.relationship('Department', remote_side=[id], backref='sub_departments')  # Optional for hierarchy
 
     def _repr_(self):
         return f'<Department {self.name}>'
