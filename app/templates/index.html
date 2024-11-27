@@ -3,34 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{%block head%} {%endblock%}</title>
+    <title>{% block head %}{% endblock %}</title>
 
-    <link rel="stylesheet" href="../static/css/styles.css">
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="{{url_for('faculty.get_faculty_list')}}">Faculty</a></1i>
-                <li><a href="{{url_for('department.get_department_list')}}">Department</a></li>
-                <li><a href="{{url_for('program.get_program_list')}}">Program</a></li>
-                <li><a href="{{url_for('level.get_level_list')}}">Level</a></li>
-                <li><a href="{{url_for('course.get_course_list')}}">Course</a></li>
-                <li><a href="{{url_for('group.get_group_list')}}">Group</a></li>
-                <li><a href="{{url_for('student.get_student_list')}}">Student</a></li>
-                <li><a href="{{url_for('assign_student.get_assign_student_list')}}">Assign Student to Group</a></li>
+                <li><a href="{{ url_for('faculty.get_faculty_list') }}">Faculty</a></li>
+                <li><a href="{{ url_for('department.get_department_list') }}">Department</a></li>
+                <li><a href="{{ url_for('program.get_program_list') }}">Program</a></li>
+                <li><a href="{{ url_for('level.get_level_list') }}">Level</a></li>
+                <li><a href="{{ url_for('course.get_course_list') }}">Course</a></li>
+                <li><a href="{{ url_for('group.get_group_list') }}">Group</a></li>
+                <li><a href="{{ url_for('student.get_student_list') }}">Student</a></li>
+                <li><a href="{{ url_for('assign_student.get_assign_student_list') }}">Assign Student to Group</a></li>
             </ul>
         </nav>
     </header>
 
     <div>
         {% block content %}
-
-        {%endblock%}
+        {% endblock %}
     </div>
+
+    <footer>
+        Welcome to Nile University
+    </footer>
 </body>
-<footer>
-    Welcome to Nile University
-</footer>
 </html>

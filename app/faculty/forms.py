@@ -1,5 +1,5 @@
-from flask_wtf import *
-from wtforms import *
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField, HiddenField
 from wtforms.validators import *
 
 class Facultyform(FlaskForm):
