@@ -1,15 +1,8 @@
 from flask import *
 from app.department import department_bp
-<<<<<<< HEAD
-from app.department.forms import departmentform
+from app.department.forms import DepartmentForm
 from app.department.models import Department
 from app import db
-=======
-from app.department.models import Department
-from app.department.forms import Departmentform
-from app import db 
-@department_bp.route("/department_list")
->>>>>>> 334f2ed3c93b64ba9ebcb34ae355448ad7f23516
 
 # Route to display the department list
 @department_bp.route("/department_list", methods=['GET'])
@@ -20,11 +13,7 @@ def get_department_list():
 # Route to add a new department
 @department_bp.route('/add_department', methods=['GET', 'POST'])
 def add_department():
-<<<<<<< HEAD
-    form = departmentform()
-=======
-    form=Departmentform()
->>>>>>> 334f2ed3c93b64ba9ebcb34ae355448ad7f23516
+    form = DepartmentForm()
     if form.validate_on_submit():
         name = form.department_name.data
         code = form.department_code.data
@@ -47,7 +36,7 @@ def delete_department(id):
 @department_bp.route('/edit_department/<int:id>', methods=['GET', 'POST'])
 def update_department(id):
     Department=Department.query.get_or_404(id)
-    form=departmentform(obj=Department)
+    form=DepartmentForm(obj=Department)
     if form.validate_on_submit():
         form.populate_obj (Department)
         db.session.commit()
