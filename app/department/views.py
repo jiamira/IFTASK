@@ -7,7 +7,7 @@ from app import db
 # Route to display the department list
 @department_bp.route("/department_list", methods=['GET'])
 def get_department_list():
-    department = department.query.all()
+    department = Department.query.all()
     return render_template("list_department.html", dp=Department)
 
 # Route to add a new department
