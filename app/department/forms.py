@@ -6,8 +6,8 @@ from app.faculty.models import Faculty
 class DepartmentForm(FlaskForm):
     id = HiddenField("id")
     faculty_id=SelectField("Select Faculty")
-    department_name=StringField("Department Name: ", validators=[data_required()])
-    department_code=StringField("Department Code: ", validators=[data_required()])
+    name=StringField("Department Name: ", validators=[data_required()])
+    code=StringField("Department Code: ", validators=[data_required()])
     submit=SubmitField("Save Changes")
 
     def __init__(self, *args, **kwargs):

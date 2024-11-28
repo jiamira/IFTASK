@@ -1,13 +1,16 @@
 from app import db
 
+
 class Department(db.Model):
-    _tablename_ = 'Department'
-    id = db.Column(db.Integer, primary_key=True)
-    department_id = db.Column(db.Integer, db.ForeignKey('Department.id'))  # Correct table reference
-    name = db.Column(db.String(50), nullable=False, unique=True)
-    code = db.Column(db.String(10), nullable=False, unique=True)
+    __tablename__ = "department"
 
-    #parent = db.relationship('Department', remote_side=[id], backref='sub_departments')  # Optional for hierarchy
+    id = db.Column(db.Integer, primary_key = True)
+    faculty_id = db.Column(db.Integer, db.ForeignKey("faculty.id"), nullable = False)
+    name = db.Column(db.String(50), nullable = False, unique = True)
+    code = db.Column(db.String(10), nullable=False, unique = True)
+    #desc = db.Column(db.String(10), nullable=False, unique = True)
 
-    def _repr_(self):
-        return f'<Department {self.name}>'
+    faculty = db.relationship("Faculty", backref="department")
+
+    def __repr__(self):
+        return f"<Department>{self.name}"

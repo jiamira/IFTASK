@@ -1,27 +1,16 @@
-{% extends 'index.html' %}
+{% extends 'index.html' %} {% block title %} Add Faculty {% endblock %} {% block
+content %}
 
-{% block title %} Add Faculty {% endblock %}
-
-{% block content %}
 <form method="POST">
-    <p>
-        {{fm.hidden_tag()}} <!--hemps protect against the cross site request forgery-->
-    </p>
-<<<<<<< HEAD
-    <p>{{form.faculty_name.label()}}  <!--This is the text label-->
-        {{form.faculty_name()}} <!--This is the text field-->
-=======
-    <p>{{fm.faculty_name.label(class='')}}  <!--This is the text label-->
-        {{fm.faculty_name(class='')}} <!--This is the text field-->
->>>>>>> 334f2ed3c93b64ba9ebcb34ae355448ad7f23516
-    </p>
-    <p>{{fm.faculty_code.label()}}  <!--This is the text label-->
-        {{fm.faculty_code()}} <!--This is the text field-->
-    </p>
-    <p>{{fm.submit(class='button_primary')}}  
-    </p>
+  <div class="centered-group">
+    <p>{{form.hidden_tag()}}</p>
 
+    <p>{{form.name.label()}} {{form.name()}}</p>
+
+    <p>{{form.code.label()}} {{form.code()}}</p>
+    <p>{{form.submit(class="button_primary")}}</p>
+
+  </div>
 </form>
-
 
 {% endblock %}

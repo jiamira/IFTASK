@@ -1,12 +1,13 @@
 from app import db
 
 class Program(db.Model):
-    _tablename_= 'program'
+    __tablename__= 'program'
     id = db.Column(db.Integer, primary_key = True)
-    faculty_id = db.Column(db.Integer, db.ForeignKey('program.id'), nullable = False)
+    department_id = db.Column(db.Integer, db.ForeignKey('department.id'), nullable = False)
     name = db.Column(db.String(50), nullable = False, unique = True)
     code = db.Column(db.String(10), nullable = False, unique = True)
 
+    department = db.relationship("Department", backref="program")
 
-    def _repr_(self):
+    def __repr__(self):
         return f'<Program>{self.name}'
