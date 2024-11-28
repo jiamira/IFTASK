@@ -6,11 +6,11 @@
 
 <br>
 <div class="table">
-    <a class="button_primary" href="{{url_for('level.add_level')}}">Add level</a> &nbsp;
-    <hr>
-            <form>
-                <button type="submit" onclick="return confirm('Are you sure you want to delete all levels?')" class="button_danger">Delete all levels</button>
-            </form>
+    <a class= "button_primary" href="{{url_for('faculty.add_faculty')}}">Add LEVEL</a> &nbsp
+    <span style="margin-right: 20px;"></span> 
+    <form methods="POST" style="display: inline;" action="{{url_for('faculty.delete_all_faculty')}}"> 
+        <button type="submit" onclick="return confirm('You sure you wan delete all faculties')" class="button_danger">Delete all Levels</button>
+    </form>
 </div>
 <br>
 <table class="table">
@@ -23,10 +23,10 @@
         <th>Action</th>
     
     </tr>
-
+{% for i in lev %}
     <tr>
-        <td>1</td>
-        <td>1</td>
+        <td>{{ i.id }}</td>
+        <td>{{ i.name }}</td>
         <td>Computing</td>
         <td>Software Engineering</td>
         <td>SEN </td>
@@ -36,6 +36,7 @@
             </form>
         </td>
     </tr>
+    {% endfor %}
 </table>
 
 

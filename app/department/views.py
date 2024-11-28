@@ -45,7 +45,6 @@ def update_department(id):
     
     return render_template("add_department.html", form=form)
 
-    
 
 
 @department_bp.route('/delete_all_department/', methods=['POST'])
