@@ -9,7 +9,7 @@
     <a class= "button_primary" href="{{url_for('faculty.add_faculty')}}">Add Faculty</a> &nbsp
     <span style="margin-right: 20px;"></span> 
     <form methods="POST" style="display: inline;" action="{{url_for('faculty.delete_all_faculty')}}"> 
-        <button type="submit" onclick="return confirm('You sure you wan delete all the faculty')" class="button_danger">Delete all Faculties</button>
+        <button type="submit" onclick="return confirm('You sure you wan delete all faculties')" class="button_danger">Delete all Faculties</button>
     </form>
 
 
@@ -34,7 +34,7 @@
         <td>{{ i.code }}</td>
         <td><a class= "button_primary" href="{{url_for('faculty.update_faculty', id=i.id)}}">Edit</a> &nbsp
         <form style="display: inline;" action="{{url_for('faculty.delete_faculty', id=i.id)}}" method="POST">
-            <button type="submit" onclick="return confirm('You sure u wan delete this stuff')" class="button_danger">Delete</button>
+            <button type="submit" onclick="return confirm('You sure you want delete this row')" class="button_danger">Delete</button>
         </form></td> 
     
     </tr>

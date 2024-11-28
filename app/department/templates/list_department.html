@@ -9,7 +9,7 @@
     <a class="button_primary" href="{{url_for('department.add_department')}}">Add Department</a>
     <span style="margin-right: 20px;"></span> 
     <form style="display: inline;" methods="POST" action="{{url_for('department.delete_all_department')}}"> 
-        <button type="submit" onclick="return confirm('You sure you wan delete all the Department')" class="button_danger">Delete all Departments</button>
+        <button type="submit" onclick="return confirm('You sure you want to delete all departments')" class="button_danger">Delete all Departments</button>
     </form>
 </div>
 
@@ -18,8 +18,7 @@
 <table class="table">
     <tr>
         <th>S/N</th>
-        <th>Faculty Name</th>
-        <th>Faculty ID</th>
+        <th>Department</th>
         <th>Department Name</th>
         <th>Department Code</th>
         <th>Action</th>
@@ -29,14 +28,13 @@
 
     <tr>
         <th>{{ i.id }}</th>
-        <th>{{ i.faculty.id }}</th>
         <th>{{ i.faculty.name }}</th>
         <th>{{ i.name }}</th>
         <th>{{ i.code }}</th>
         <td>
             <a class="button_primary" href="{{url_for('department.update_department', id=i.id)}}">Edit</a>&nbsp
             <form style="display: inline;" method="POST" action="{{url_for('department.delete_department', id=i.id)}}">
-                <button type="submit" onclick="return confirm('You sure you wan delete this stuff')" class="button_danger">Delete</button>
+                <button type="submit" onclick="return confirm('You sure you want delete to this row')" class="button_danger">Delete</button>
             </form>
         </td> 
     </tr>
